@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+// Дана последовательность N целых чисел. Найти сумму простых чисел.
+public class Exemple1 {
+    public static void main(String[] args) {
+        int sum = 0;
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
+        }
+        scanner.close();
+        for (int i = 0; i < array.length; i++) {
+            int k = 2;
+            if (array[i] == 2 && array[i] == 3) {
+                sum += array[i];
+            }
+            else {
+                while (k < array[i]) {
+                    if (array[i] % k == 0) break;
+                    if (array[i] - 1 == k) sum += array[i];
+                    k++;
+                }
+            }
+        }
+        System.out.println(sum);
+    }
+}
+
+import java.util.Scanner;
+
+// Дана последовательность из N целых чисел. Верно ли, что последовательность является возрастающей.
+public class Exemple2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < array.length-1; i++) {
+            if (array[i] > array[i+1]) {
+                System.out.println("Не является возраствющей");
+                break;
+            }
+            if(i == array.length-2) {
+                System.out.println("Последовательность является возрастающей");
+            }
+        }
+
+    }
+}
+
+
+//Дан массив целых чисел. Заменить отрицательные элементы на сумму индексов двузначных элементов массива.
+public class Exemple3 {
+    public static void main(String[] args) {
+        int[] array = new int[] {1, 2, -6, 11, 10, -2, -1};
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] < 0) {
+                sum += i;
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            if(array[i] < 0){
+                array[i] = sum;
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+
+        }
+    }
+}
